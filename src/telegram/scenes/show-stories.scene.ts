@@ -54,15 +54,15 @@ export class ShowStoriesScene extends BaseScene {
         break;
       case 'view_story':
         await ctx.answerCbQuery();
-        await ctx.scene.enter('view_story', { storyId: value });
-        break;
-      case 'back_to_list':
-        await ctx.answerCbQuery();
-        // await ctx.scene.enter('show_stories');
+        // await ctx.scene.enter('view_story', { storyId: value });
         await ctx.scene.enter('start', {
           canEditMessage: true,
           message: 'Просмотр историй в разработке',
         });
+        break;
+      case 'back_to_list':
+        await ctx.answerCbQuery();
+        await ctx.scene.enter('show_stories');
         break;
       case 'back':
         await ctx.answerCbQuery();
