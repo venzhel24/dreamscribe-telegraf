@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .docker/app/Dockerfile
+    container_name: dreamscribe
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgres://${DB_USER}:${DB_PASS}@db:5432/${DB_DB}
+      - REDIS_HOST=${REDIS_HOST}
+      - BOT_TOKEN=${BOT_TOKEN}
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - redis
+    restart: always
+
+  db:
+    image: postgres:17-alpine
+    container_name: db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_DB}
+    volumes:
+      - ./docker/postgres/data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: always
+
+volumes:
+  redis_data:
