@@ -18,11 +18,11 @@ export class StartScene extends BaseScene {
   private readonly callbackHandlers = {
     write_story: async (ctx: Context) => {
       await ctx.answerCbQuery();
-      await ctx.scene.enter('write_story', { canEditMessage: true });
+      await ctx.scene.enter('write_story');
     },
     show_stories: async (ctx: Context) => {
       await ctx.answerCbQuery();
-      await ctx.scene.enter('show_stories', { canEditMessage: true });
+      await ctx.scene.enter('show_stories');
     },
     stories_feed: async (ctx: Context) => {
       await ctx.answerCbQuery();

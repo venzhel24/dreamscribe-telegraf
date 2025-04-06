@@ -54,10 +54,8 @@ export class ShowStoriesScene extends BaseScene {
         break;
       case 'view_story':
         await ctx.answerCbQuery();
-        // await ctx.scene.enter('view_story', { storyId: value });
-        await ctx.scene.enter('start', {
-          canEditMessage: true,
-          message: 'Просмотр историй в разработке',
+        await ctx.scene.enter('view_story', {
+          storyId: value,
         });
         break;
       case 'back_to_list':
@@ -66,7 +64,7 @@ export class ShowStoriesScene extends BaseScene {
         break;
       case 'back':
         await ctx.answerCbQuery();
-        await ctx.scene.enter('start', { canEditMessage: true });
+        await ctx.scene.enter('start');
         break;
       default:
         await ctx.answerCbQuery('Неизвестная команда.');

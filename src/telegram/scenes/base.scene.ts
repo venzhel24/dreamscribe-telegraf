@@ -13,23 +13,36 @@ export abstract class BaseScene {
     ctx: Context,
     text: string,
     keyboard?: any,
+    parseMode: 'Markdown' | 'HTML' = 'Markdown',
   ) {
     const state = this.getState(ctx);
 
     if (state.canEditMessage && ctx.callbackQuery?.message?.message_id) {
       try {
-        await ctx.editMessageText(text, keyboard);
+        await ctx.editMessageText(text, {
+          ...keyboard,
+          parse_mode: parseMode,
+        });
       } catch (error) {
         this.logger.error('Ошибка при редактировании сообщения:', error);
-        await ctx.reply(text, keyboard);
+        await ctx.reply(text, {
+          ...keyboard,
+          parse_mode: parseMode,
+        });
       }
     } else {
-      await ctx.reply(text, keyboard);
+      await ctx.reply(text, {
+        ...keyboard,
+        parse_mode: parseMode,
+      });
     }
   }
 
   protected getState(ctx: Context): SceneState {
-    return ctx.scene.state as SceneState;
+    return {
+      canEditMessage: true,
+      ...ctx.scene.state,
+    } as SceneState;
   }
 
   protected getInlineKeyboard(buttons: Record<string, string>) {

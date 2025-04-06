@@ -53,4 +53,12 @@ export class StoryService {
       ],
     });
   }
+
+  async update(id: number, data: Partial<Story>) {
+    return this.storyRepository.update(id, data);
+  }
+
+  async findOne(id: number) {
+    return this.storyRepository.findOneBy({ id });
+  }
 }

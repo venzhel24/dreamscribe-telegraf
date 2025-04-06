@@ -49,7 +49,6 @@ export class WriteStoryScene extends BaseScene {
     });
 
     await ctx.scene.enter('start', {
-      canEditMessage: true,
       message: SCENE_WRITE_STORY_TEXTS.success,
     });
   }
@@ -62,7 +61,6 @@ export class WriteStoryScene extends BaseScene {
     if (query.data === 'cancel') {
       await context.answerCbQuery();
       await context.scene.enter('start', {
-        canEditMessage: true,
         message: SCENE_WRITE_STORY_TEXTS.cancelledMessage,
       });
     }
