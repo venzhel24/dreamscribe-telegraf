@@ -18,8 +18,8 @@ export class Rating {
   @ManyToOne(() => Story, (story) => story.ratings)
   story: Story;
 
-  @Column({ type: 'int', default: 1 })
-  rating: number;
+  @Column({ type: 'boolean', default: false })
+  isLike: boolean;
 
   @CreateDateColumn()
   createdAt: Date;

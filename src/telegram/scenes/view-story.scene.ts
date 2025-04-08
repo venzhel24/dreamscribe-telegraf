@@ -3,7 +3,7 @@ import { Logger, UseFilters } from '@nestjs/common';
 import { Markup } from 'telegraf';
 import { TelegrafExceptionFilter } from '../exceptions/telegraf-exception.filter';
 import { Context } from '../types/tgbot.context';
-import { StoryService } from '../../story/story.service';
+import { StoryService } from '../../story/services/story.service';
 import { SCENE_VIEW_STORY_TEXTS, BUTTON_TEXTS } from '../constants/texts';
 import { BaseScene } from './base.scene';
 
@@ -62,7 +62,6 @@ export class ViewStoryScene extends BaseScene {
         await ctx.answerCbQuery();
         await ctx.scene.enter('edit_story', {
           storyId: state.storyId,
-          accessModifier: state.accessModifier,
           step: 'choose_action',
         });
         break;

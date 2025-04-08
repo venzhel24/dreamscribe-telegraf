@@ -3,12 +3,12 @@ import { TelegramService } from './telegram.service';
 import { TelegrafModule } from 'nestjs-telegraf';
 import { TelegramConfigService } from '../config/telegram.config.service';
 import { StoryModule } from '../story/story.module';
-import { RatingModule } from '../rating/rating.module';
 import { StartScene } from './scenes/start.scene';
 import { WriteStoryScene } from './scenes/write-story.scene';
 import { ShowStoriesScene } from './scenes/show-stories.scene';
 import { EditStoryScene } from './scenes/edit-story.scene';
 import { ViewStoryScene } from './scenes/view-story.scene';
+import { StoriesFeedScene } from './scenes/stories-feed.scene';
 
 @Module({
   imports: [
@@ -17,7 +17,6 @@ import { ViewStoryScene } from './scenes/view-story.scene';
       inject: [TelegramConfigService],
     }),
     StoryModule,
-    RatingModule,
   ],
   providers: [
     TelegramService,
@@ -27,6 +26,7 @@ import { ViewStoryScene } from './scenes/view-story.scene';
     ShowStoriesScene,
     EditStoryScene,
     ViewStoryScene,
+    StoriesFeedScene,
   ],
 })
 export class TelegramModule {}

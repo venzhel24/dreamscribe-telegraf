@@ -3,7 +3,7 @@ import { Logger, UseFilters } from '@nestjs/common';
 import { Markup } from 'telegraf';
 import { TelegrafExceptionFilter } from '../exceptions/telegraf-exception.filter';
 import { Context } from '../types/tgbot.context';
-import { StoryService } from '../../story/story.service';
+import { StoryService } from '../../story/services/story.service';
 import { SCENE_SHOW_STORIES_TEXTS } from '../constants/texts';
 import { BaseScene } from './base.scene';
 

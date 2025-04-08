@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
   OneToMany,
 } from 'typeorm';
-import { Rating } from '../../rating/entities/rating.entity';
+import { Rating } from './rating.entity';
 
 @Entity()
 export class Story {

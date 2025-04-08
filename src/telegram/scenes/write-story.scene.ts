@@ -1,6 +1,6 @@
 import { Ctx, Message, On, Scene, SceneEnter } from 'nestjs-telegraf';
 import { Context } from '../types/tgbot.context';
-import { StoryService } from '../../story/story.service';
+import { StoryService } from '../../story/services/story.service';
 import { SCENE_WRITE_STORY_TEXTS } from '../constants/texts';
 import { BaseScene } from './base.scene';
 import { Logger } from '@nestjs/common';

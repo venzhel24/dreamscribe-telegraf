@@ -5,5 +5,4 @@ export interface SceneState {
   message?: string;
   storyId?: number;
   step?: string;
-  accessModifier?: 'public' | 'private';
 }

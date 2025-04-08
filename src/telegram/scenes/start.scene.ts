@@ -26,7 +26,7 @@ export class StartScene extends BaseScene {
     },
     stories_feed: async (ctx: Context) => {
       await ctx.answerCbQuery();
-      await ctx.reply(TEMP_MESSAGES.developing);
+      await ctx.scene.enter('stories_feed');
     },
   };
 

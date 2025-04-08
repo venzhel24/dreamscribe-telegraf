@@ -5,7 +5,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { DbConfigService } from './config/db.config.service';
 import { StoryModule } from './story/story.module';
-import { RatingModule } from './rating/rating.module';
 import { TelegramModule } from './telegram/telegram.module';
 
 @Module({
@@ -16,7 +15,6 @@ import { TelegramModule } from './telegram/telegram.module';
     }),
     ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
     StoryModule,
-    RatingModule,
     TelegramModule,
   ],
   controllers: [AppController],

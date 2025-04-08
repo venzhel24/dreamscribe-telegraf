@@ -6,6 +6,7 @@ import { Context } from './types/tgbot.context';
 export class TelegramService {
   @Start()
   async onStart(@Ctx() ctx: Context) {
+    ctx.scene.state = {};
     await ctx.scene.enter('start');
   }
 }
