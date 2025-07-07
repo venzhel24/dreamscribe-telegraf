@@ -6,6 +6,8 @@ import { ConfigModule } from '@nestjs/config';
 import { DbConfigService } from './config/db.config.service';
 import { StoryModule } from './story/story.module';
 import { TelegramModule } from './telegram/telegram.module';
+import { BullModule } from '@nestjs/bullmq';
+import { BullConfigService } from './config/bull.config.service';
 
 @Module({
   imports: [
@@ -16,6 +18,10 @@ import { TelegramModule } from './telegram/telegram.module';
     ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
     StoryModule,
     TelegramModule,
+    BullModule.forRootAsync({
+      useClass: BullConfigService,
+      inject: [BullConfigService],
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],

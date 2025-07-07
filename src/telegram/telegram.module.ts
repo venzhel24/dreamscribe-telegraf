@@ -9,6 +9,9 @@ import { ShowStoriesScene } from './scenes/show-stories.scene';
 import { EditStoryScene } from './scenes/edit-story.scene';
 import { ViewStoryScene } from './scenes/view-story.scene';
 import { StoriesFeedScene } from './scenes/stories-feed.scene';
+import { TranscriptionModule } from '../transcription/transcription.module';
+import { TranscriptionResultConsumer } from './processors/transcription-result.consumer';
+import { TelegramSenderService } from './services/telegram-sender.service';
 
 @Module({
   imports: [
@@ -17,6 +20,7 @@ import { StoriesFeedScene } from './scenes/stories-feed.scene';
       inject: [TelegramConfigService],
     }),
     StoryModule,
+    TranscriptionModule,
   ],
   providers: [
     TelegramService,
@@ -27,6 +31,8 @@ import { StoriesFeedScene } from './scenes/stories-feed.scene';
     EditStoryScene,
     ViewStoryScene,
     StoriesFeedScene,
+    TranscriptionResultConsumer,
+    TelegramSenderService,
   ],
 })
 export class TelegramModule {}
