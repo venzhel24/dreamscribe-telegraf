@@ -80,6 +80,8 @@ export class WriteStoryScene extends BaseScene {
     });
 
     await ctx.reply('Сообщение обрабатывается. Подождите...');
+    this.logger.log(`User ${ctx.from.id} sent audio for transcription, leaving write_story scene`);
+    await ctx.scene.leave();
   }
 
   @On('callback_query')

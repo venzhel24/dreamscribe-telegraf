@@ -9,6 +9,7 @@ import { ShowStoriesScene } from './scenes/show-stories.scene';
 import { EditStoryScene } from './scenes/edit-story.scene';
 import { ViewStoryScene } from './scenes/view-story.scene';
 import { StoriesFeedScene } from './scenes/stories-feed.scene';
+import { EditTranscriptScene } from './scenes/edit-transcript.scene';
 import { TranscriptionModule } from '../transcription/transcription.module';
 import { TranscriptionResultConsumer } from './processors/transcription-result.consumer';
 import { TelegramSenderService } from './services/telegram-sender.service';
@@ -31,6 +32,7 @@ import { TelegramSenderService } from './services/telegram-sender.service';
     EditStoryScene,
     ViewStoryScene,
     StoriesFeedScene,
+    EditTranscriptScene,
     TranscriptionResultConsumer,
     TelegramSenderService,
   ],
